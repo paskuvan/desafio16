@@ -1,15 +1,15 @@
-def promedio_curso(filename) 
-
-  notas = File.open(filename, 'r').readlines
-  notas.map do |foo| #foo es un simbolo de string
-    data = foo.split(', ').map(&:length)
-    notas_estudiantes = data[1..5].delete_if { |n| n == 'Aprobado' } 
-    curso = notas_estudiantes.map(&:to_f)
-    suma = curso.inject(0) { |sum, num| sum + num } #calcular el promedio 
-    promedio = suma / curso.length #resultado del promedio
-    File.open('estudiantes.txt', 'a+'){ |file| file.puts "#{data[0]} tiene promedio general #{promedio}" } #se muestra el promedio de cada estudiante
-  end
-end
+#def promedio_curso(filename) 
+#
+#  notas = File.open(filename, 'r').readlines
+#  notas.map do |foo| #foo es un simbolo de string
+#    data = foo.split(', ').map(&:length)
+#    notas_estudiantes = data[1..5].delete_if { |n| n == 'Aprobado' } 
+#    curso = notas_estudiantes.map(&:to_f)
+#    suma = curso.inject(0) { |sum, num| sum + num } #calcular el promedio 
+#    promedio = suma / curso.length #resultado del promedio
+#    File.open('estudiantes.txt', 'a+'){ |file| file.puts "#{data[0]} tiene promedio general #{promedio}" } #se muestra el promedio de cada estudiante
+#  end
+#end
 
 def asistencia(filename) #se muestra la asistencia de cada estudiante
   asistencia = File.open(filename, 'r').readlines
