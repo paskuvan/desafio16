@@ -82,6 +82,6 @@ while input #lista de opciones
     puts 'ByeBye', "\n" #opcion 4, salida
     exit
   else
-    puts 'La opción no es existe. Pone de nuevo la opción 3.' #opcion 3, si pones más de 5, ya no existe, pone de nuevo la tecla 3
+    puts 'La opción no existe. Pone de nuevo la opción 3.' #opcion 3, si pones más de 5, ya no existe, pone de nuevo la tecla 3
   end
 end

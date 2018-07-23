@@ -2,3 +2,15 @@
 7 tiene promedio general 1.4
 3 tiene promedio general 1.6
 2 tiene promedio general 2.0
+5 tiene promedio general 1.2
+7 tiene promedio general 1.4
+3 tiene promedio general 1.6
+2 tiene promedio general 2.0
+5 tiene promedio general 1.2
+7 tiene promedio general 1.4
+3 tiene promedio general 1.6
+2 tiene promedio general 2.0
+5 tiene promedio general 1.2
+7 tiene promedio general 1.4
+3 tiene promedio general 1.6
+2 tiene promedio general 2.0
