@@ -1,14 +1,20 @@
-def promedio_curso(filename) 
-
-  notas = File.open(filename, 'r').readlines
-  notas.map do |foo|
-    data = foo.split(', ').map(&:length)
-    notas_estudiantes = data[1..5].delete_if { |n| n == 'Aprobado' } 
-    curso = notas_estudiantes.map(&:to_f)
-    suma = curso.inject(0) { |sum, num| sum + num } #calcular el promedio 
-    promedio = suma / curso.length #resultado del promedio
-    File.open('estudiantes.txt', 'a+'){ |file| file.puts "#{data[0]} tiene promedio general #{promedio}" } #se muestra el promedio de cada estudiante
-  end
+def promedio_curso
+    file = File.open('file.csv', 'r')
+    estudiantes = file.readlines
+    file.close
+    suma = 0
+    estudiantes.each do |notas|
+      suma += notas.split(', ')[1].to_f 
+      nombre = notas.split(', ')[0] 
+      suma = 0
+      notas.split(', ').each_with_index do |elemento, notas|
+        if notas != 0
+          suma += elemento.split("\n")[0].to_i
+        end
+      end
+      promedio = suma.to_f / (notas.split(', ').length - 1) 
+      puts "#{nombre} tiene #{promedio} promedio final"
+    end
 end
 
 def asistencia(filename) #se muestra la asistencia de cada estudiante
@@ -53,8 +59,8 @@ while input #lista de opciones
 
   case input
   when 1 #opcion 1 
-    promedio_curso('file.csv') #se agrega automatica% al hacer click la opcion 1 y se carga el archivo
-    puts 'Se ha agregado el archivo estudiantes.txt en su directorio actual.', "\n"
+    #se agrega automatica% al hacer click la opcion 1 y se carga el archivo
+    promedio_curso
          
   when 2 #resultado con el archivo cargado
     asistencia('file.csv')
