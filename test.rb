@@ -1,26 +1,20 @@
 def promedio_curso
-    file = File.open('estudiantes.txt', 'r')
+    file = File.open('file.csv', 'r')
     estudiantes = file.readlines
     file.close
-
     suma = 0
-    datos = ' '
     estudiantes.each do |notas|
       suma += notas.split(', ')[1].to_f 
       nombre = notas.split(', ')[0] 
       suma = 0
-      notas.split(', ').each_with_index do |elemento, nota|
-        if nota != 0
+      notas.split(', ').each_with_index do |elemento, notas|
+        if notas != 0
           suma += elemento.split("\n")[0].to_i
         end
       end
       promedio = suma.to_f / (notas.split(', ').length - 1) 
-      datos = "#{nombre} tiene #{promedio} promedio final"
+      puts "#{nombre} tiene #{promedio} promedio final"
     end
-
-    file = File.open('promedio.txt', 'w')
-    file.puts datos
-    file.close
 end
 
 def asistencia(filename) #se muestra la asistencia de cada estudiante
