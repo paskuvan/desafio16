@@ -1,20 +1,25 @@
 def promedio_curso
-    file = File.open('file.csv', 'r')
+    file = File.open('file.csv', 'r') # aca estas leyendo un archivo que ya existe
     estudiantes = file.readlines
     file.close
     suma = 0
+    file = File.open('estudiantes.txt', 'w')
     estudiantes.each do |notas|
-      suma += notas.split(', ')[1].to_f 
-      nombre = notas.split(', ')[0] 
-      suma = 0
-      notas.split(', ').each_with_index do |elemento, notas|
-        if notas != 0
-          suma += elemento.split("\n")[0].to_i
-        end
+    suma += notas.split(', ')[1].to_f 
+    nombre = notas.split(', ')[0] 
+    suma = 0
+    notas.split(', ').each_with_index do |elemento, notas|
+      if notas != 0
+        suma += elemento.split("\n")[0].to_i
       end
-      promedio = suma.to_f / (notas.split(', ').length - 1) 
-      puts "#{nombre} tiene #{promedio} promedio final"
     end
+    # Por acà deberiamos crear un nuevo archivo y agregar el promedio, pero no hay nada de eso po!
+    # Hay que crear un archivo y dentro del archivo hacer el puts
+     
+    promedio = suma.to_f / (notas.split(', ').length - 1) 
+    file.puts "#{nombre} tiene #{promedio} promedio final"
+  end
+    file.close
 end
 
 def asistencia(filename) #se muestra la asistencia de cada estudiante
